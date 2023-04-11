@@ -58,6 +58,13 @@ paciente -- /paciente/id -- DELETE
                                                 CONSULTA
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+CONSULTA
+{
+    "data_hota": "yyyy-mm-dd",
+    "revisao": false,
+    "paciente_id": 10
+}
+
 Consulta -- /cosnulta/add/ -- POST
         consulta - Date data_hora
            boolean revisao
@@ -81,6 +88,12 @@ Consulta -- /cosnulta/id -- DELETE
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                                             PLANO DE SAUDE
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+PLANO DE SAUDE
+{
+    "nome": "nome plano de saude",
+    "limite_consultas": 10
+}
 
 Plano de Saude -- /plano_saude/add/ -- POST
         plano_saude - String nome
