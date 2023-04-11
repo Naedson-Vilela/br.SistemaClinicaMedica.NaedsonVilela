@@ -15,7 +15,7 @@ def validarFields(request, objeto):
             })
     if erros:
         return False, erros
-    return data
+    return True, data
 
 
 def validar_plano_saude(id):

@@ -25,8 +25,11 @@ class DaoEncaixe:
             return None
         with self.data_base.cursor() as cursor:
             encaixe = self.get_by_data(consulta.data_hora)
+            print(encaixe)
+            if encaixe and encaixe.limite():
+                return False
 
-            if encaixe is None:
+            if not encaixe:
                 encaixe = self.salvar(consulta.data_hora)
 
             if DaoConsulta().get_by_id(consulta.id) is None:
@@ -49,7 +52,7 @@ class DaoEncaixe:
                                                                           consulta.id, consulta.data_hora))
                 self.data_base.commit()
                 return self.get_by_data(consulta.data_hora)
-            return self.save_consulta(consulta)
+            return True
 
     def get_all(self):
         encaixes = []

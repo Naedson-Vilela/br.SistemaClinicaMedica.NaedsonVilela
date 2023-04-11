@@ -1,3 +1,6 @@
+import datetime
+
+
 class Paciente:
 
     FIELDS_TO_VALIDATE = ['nome', 'endereco', 'telefone', 'email', 'data_nascimento']
@@ -25,7 +28,7 @@ class Paciente:
             'endereco': self.endereco,
             'telefone': self.telefone,
             'email': self.email,
-            'data_nascimento': self.data_nascimento,
+            'data_nascimento': self.data_nascimento.strftime('%d/%m/%y'),
             'plano_saude_id': self.plano_saude_id,
             'data_primeira_consulta': self.data_primeira_consulta,
         }

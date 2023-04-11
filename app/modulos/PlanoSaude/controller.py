@@ -11,8 +11,9 @@ dao_plano_saude = DaoPlanoSaude()
 
 @app_plano_saude.route(f'/{app_name}/add/', methods=['POST'])
 def add_plano_saude():
-    data = validarFields(request, PlanoSaude)
-    if len(data) == 2:
+    validate, data = validarFields(request, PlanoSaude)
+    if not validate:
+        print(data)
         return make_response(jsonify(data), 404)
     plano_saude = PlanoSaude(**data)
     dao_plano_saude.salvar(plano_saude)
@@ -38,8 +39,8 @@ def get_plano_saude_by_id(id: int):
 
 @app_plano_saude.route(f'/{app_name}/<int:id>/', methods=['PUT'])
 def update_plano_saude(id: int):
-    data = validarFields(request, PlanoSaude)
-    if len(data) == 2:
+    validate, data = validarFields(request, PlanoSaude)
+    if not validate:
         return make_response(jsonify(data), 404)
 
     plano_saude_old = dao_plano_saude.get_by_id(id)

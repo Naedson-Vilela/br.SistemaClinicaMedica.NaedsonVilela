@@ -22,6 +22,20 @@ consulta - Date data_hora
                                                PACIENTE
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+
+PACIENTE
+{
+    "data_nascimento": "1984-10-17",
+    "data_primeira_consulta": null,
+    "email": "hedonbolado@gmail.com",
+    "endereco": "patos pb",
+    "id": 1,
+    "nome": "Heldon ",
+    "plano_saude_id": "1",
+    "telefone": "98999999999"
+}
+
+
 paciente -- /paciente/add/ -- POST
         Paciente - String nome, endereco, telefone, email
            Date data de nascimento 
@@ -105,3 +119,7 @@ Encaixe -- /encaixe/id/consulta_id/ -- DELETE
         
 Encaixe -- /encaixe/id/consulta_id/ -- DELETE
         Deleta o encaixe por id
+
+
+
+

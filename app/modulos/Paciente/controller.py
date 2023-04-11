@@ -11,8 +11,9 @@ dao_paciente = DaoPaciente()
 
 @app_paciente.route(f'/{app_name}/add/', methods=['POST'])
 def add_paciente():
-    data = validarFields(request, Paciente)
-    if len(data) == 2:
+    validate, data = validarFields(request, Paciente)
+    print(data)
+    if not validate:
         return make_response(jsonify(data), 404)
 
     if validar_plano_saude(data['plano_saude_id']):
@@ -46,8 +47,8 @@ def get_paciente_by_plano_saude(id: int):
 
 @app_paciente.route(f'/{app_name}/<int:id>/', methods=['PUT'])
 def update_paciente(id: int):
-    data = validarFields(request, Paciente)
-    if len(data) == 2:
+    validate, data = validarFields(request, Paciente)
+    if not validate:
         return make_response(jsonify(data), 404)
 
     paciente_old = dao_paciente.get_by_id(id)

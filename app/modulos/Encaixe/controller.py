@@ -30,8 +30,8 @@ def get_encaixe_by_id(id: int):
 
 @app_encaixe.route(f'/{app_name}/<int:id>/consulta_<int:value>_id/', methods=['PUT'])
 def remarcar_consulta(id: int, value: int):
-    data = validarFields(request, Consulta)
-    if len(data) == 2:
+    validate, data = validarFields(request, Consulta)
+    if not validate:
         return make_response(jsonify(data), 404)
     if dao_consulta.get_by_id(dao_encaixe.get_consulta_id(id, value)):
         dao_consulta.delete(dao_encaixe.remarcar_consulta(id, value, data['data_hora']))

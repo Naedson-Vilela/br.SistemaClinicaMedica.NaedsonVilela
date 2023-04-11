@@ -9,9 +9,9 @@ class ConnectDataBase:
     def __init__(self) -> None:
         self._connect = psycopg2.connect(
             host="localhost",
-            database="nome_banco_dados",
-            user="user",
-            password="password"
+            database="SistemaClinica",
+            user="postgres",
+            password="postgres"
         )
 
     def get_instance(self):
